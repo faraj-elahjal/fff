@@ -1,0 +1,258 @@
+body {
+    font-family: "Tajawal", Arial, sans-serif;
+
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .header-image {
+    max-width: 200px;
+  }
+  
+  .controls {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .search-box {
+    padding: 10px;
+    width: 60%;
+    max-width: 400px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .toggle-btn {
+    padding: 10px 20px;
+    background-color: #ccc;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .toggle-btn.active-alternative {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .toggle-btn.active-boycott {
+    background-color: #F44336;
+    color: white;
+  }
+  .product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .product-card {
+    width: 200px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.3s ease;
+  }
+  
+  .product-card img {
+    width: 100%;
+    border-radius: 8px;
+  }
+  
+  .product-card h3 {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .product-card .status {
+    display: block;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 6px;
+    border-radius: 8px;
+    color: white;
+  }
+  
+  .product-card.alternative {
+    background-color: #e6f4ea; /* خلفية خضراء فاتحة */
+  }
+  
+  .product-card.alternative .status {
+    background-color: #4CAF50; /* أخضر */
+  }
+  
+  .product-card.boycott {
+    background-color: #ffe5e5; /* خلفية حمراء فاتحة */
+  }
+  
+  .product-card.boycott .status {
+    background-color: #F44336; /* أحمر */
+  }
+  
+  .product-card:hover {
+    transform: scale(1.03);
+  }
+  .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+  }
+  
+  .nav-item {
+    text-align: center;
+    color: #555;
+    text-decoration: none;
+    flex: 1;
+  }
+  
+  .nav-item i {
+    font-size: 20px;
+    display: block;
+    margin-bottom: 4px;
+  }
+  
+  .nav-item:hover {
+    color: #4CAF50; /* أخضر عند التفاعل */
+  }
+  
+  /* الشريط السفلي */
+.bottom-tab {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--card-bg, #fff);
+    border-top: 1px solid var(--card-border, #ddd);
+    display: flex;
+    justify-content: space-around;
+    padding: 12px 0;
+    z-index: 1000;
+  }
+  
+  .tab-item {
+    width: 60px;
+    height: 60px;
+    background: var(--card-bg, #fff);
+    border: 2px solid var(--accent, #2da331);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-dark, #1c7c24);
+    text-decoration: none;
+    transition: transform 0.2s, background 0.3s;
+    font-size: 18px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  
+  .tab-item:hover {
+    transform: scale(1.1);
+    background: var(--card-border, #eee);
+  }
+  
+  .tab-item.active {
+    background: var(--accent, #2da331);
+    color: white;
+  }
+  
+  .tab-item i {
+    font-size: 22px;
+  }
+  
+  /* Responsive */
+  @media (max-width: 600px) {
+    .card {
+      width: 140px;
+    }
+    .card img {
+      height: 120px;
+    }
+    .sponsor {
+      width: 60px;
+      height: 60px;
+    }
+  }
+    /* Responsive */
+    @media (max-width: 600px) {
+        .card {
+          width: 140px;
+        }
+        .card img {
+          height: 120px;
+        }
+        .sponsor {
+          width: 60px;
+          height: 60px;
+        }
+      }
+      /* الهواتف */
+    @media (max-width: 600px) {
+      .card {
+        width: 140px;
+      }
+      .card img {
+        height: 120px;
+        max-width: 100%;
+      }
+      .sponsor {
+        width: 60px;
+        height: 60px;
+      }
+    }
+    
+    /* الأجهزة اللوحية */
+    @media (max-width: 768px) {
+      .card {
+        width: 200px;
+      }
+    }
+    
+    /* الشاشات المتوسطة */
+    @media (max-width: 1024px) {
+      .card {
+        width: 250px;
+      }
+    }
+  .tab-item {
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  }
+  .tab-item.active {
+    background: var(--accent);
+  }
+  .tab-item.active i {
+    color: #62f8b7;
+  }
+  .product-card img {
+    width: 100%;          /* يأخذ عرض البطاقة بالكامل */
+    height: 180px;        /* ارتفاع ثابت لكل الصور */
+    object-fit: cover;    /* يملأ الإطار مع قص الأطراف إذا لزم */
+    border-radius: 8px;   /* زوايا مستديرة متناسقة */
+  }

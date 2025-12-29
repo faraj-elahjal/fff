@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>الداعمين</title>
+
+  <!-- مكتبة الأيقونات -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- خط عربي أنيق -->
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --card-bg: #fff;
+      --card-border: #ddd;
+      --accent: #2da331;
+      --accent-dark: #1c7c24;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Tajawal", Arial, sans-serif;
+      background-color: var(--card-bg);
+      color: #333;
+      padding-bottom: 80px;
+    }
+
+    /* الهيدر */
+    .page-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 15px;
+      background-color: var(--card-bg);
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .page-header .logo {
+      max-width: 200px;
+    }
+
+    .page-header h1 {
+      font-size: 24px;
+      margin: 0;
+      color: var(--accent-dark);
+    }
+
+    /* شبكة الداعمين */
+    .sponsors-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .sponsor-card {
+      width: 140px;
+      cursor: pointer;
+    }
+
+    .sponsor-card img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s, border-color 0.3s;
+    }
+
+    .sponsor-card img:hover {
+      transform: scale(1.05);
+      border-color: #388E3C;
+    }
+
+    .sponsor-card p {
+      margin-top: 8px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    /* النافذة المنبثقة */
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+
+    .popup-content {
+      background: white;
+      padding: 20px;
+      border-radius: 50%;
+      text-align: center;
+      width: 250px;
+      height: 250px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .popup-content img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .popup-content h3 {
+      margin: 5px 0;
+      font-size: 18px;
+      color: var(--accent-dark);
+    }
+
+    .popup-content p {
+      font-size: 14px;
+      margin: 0;
+    }
+
+    .popup-content button {
+      margin-top: 10px;
+      padding: 6px 12px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    /* شريط التنقل السفلي */
+    .bottom-tab {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--card-bg);
+      border-top: 1px solid var(--card-border);
+      display: flex;
+      justify-content: space-around;
+      padding: 12px 0;
+      z-index: 1000;
+    }
+
+    .tab-item {
+      width: 60px;
+      height: 60px;
+      background: var(--card-bg);
+      border: 2px solid var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-dark);
+      text-decoration: none;
+      transition: transform 0.2s, background 0.3s;
+      font-size: 18px;
+    }
+
+    .tab-item:hover {
+      transform: scale(1.1);
+      background: var(--card-border);
+    }
+
+    .tab-item.active {
+      background: var(--accent);
+      color: white;
+    }
+
+    @media (max-width: 480px) {
+      .sponsor-card {
+        width: 100px;
+      }
+
+      .sponsor-card img {
+        width: 100px;
+        height: 100px;
+      }
+
+      .page-header h1 {
+        font-size: 20px;
+      }
+    }
+      /* Responsive */
+  @media (max-width: 600px) {
+    .card {
+      width: 140px;
+    }
+    .card img {
+      height: 120px;
+    }
+    .sponsor {
+      width: 60px;
+      height: 60px;
+    }
+  }
+  /* الهواتف */
+@media (max-width: 600px) {
+  .card {
+    width: 140px;
+  }
+  .card img {
+    height: 120px;
+    max-width: 100%;
+  }
+  .sponsor {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* الأجهزة اللوحية */
+@media (max-width: 768px) {
+  .card {
+    width: 200px;
+  }
+}
+
+/* الشاشات المتوسطة */
+@media (max-width: 1024px) {
+  .card {
+    width: 250px;
+  }
+}
+  </style>
+</head>
+<body>
+
+  <!-- الهيدر -->
+  <header class="page-header">
+    <img src="badeel.png" alt="شعار بديل" class="logo" />
+    <h1>الداعمين</h1>
+  </header>
+
+  <!-- شبكة الداعمين -->
+  <section class="sponsors-grid">
+    <div class="sponsor-card" onclick="showPopup('ksh.webp','مطعم KSH','شارع المطار')">
+      <img src="ksh.webp" alt="مطعم KSH" />
+      <p>مطعم KSH</p>
+    </div>
+    <div class="sponsor-card" onclick="showPopup('kudo.webp','كودو - فرع بدر','شارع بدر')">
+      <img src="kudo.webp" alt="كودو بدر" />
+      <p>كودو - فرع بدر</p>
+    </div>
+    <div class="sponsor-card" onclick="showPopup('oston.webp','Osten - اوستن','شارع بنغازي، بجوار مسجد العائب')">
+      <img src="oston.webp" alt="اوستن" />
+      <p>Osten - اوستن</p>
+    </div>
+    <div class="sponsor-card" onclick="showPopup('bb.webp','مطعم دبل بي','شارع طرابلس')">
+      <img src="bb.webp" alt="" />
+      <p>مطعم دبل بي</p>
+    </div>
+    <div class="sponsor-card" onclick="showPopup('lagona.webp','مطعم لاقونا','فرع بدر')">
+      <img src="lagona.webp" alt="لاقونا" />
+      <p>مطعم لاقونا</p>
+    </div>
+  </section>
+
+  <section class="sponsors-grid">
+    <div class="sponsor-card" onclick="showPopup('raf.jpg',' كافي رشفة','سوق أبانوس','شارع المطبات')">
+      <img src="raf.jpg" alt="بن نصر" />
+      <p>كافي رشفة</p>
+    </div>
+    <div class="sponsor-card" onclick="showPopup('pre.webp','مطعم برستيج','شارع طرابلس')">
+      <img src="pre.webp" alt="برستيج" />
+      <p>مطعم برستيج</p>
+    </div>
+    <div class="sponsor-card" onclick="showPopup('bom.webp','بوم بون','فرع وسط المدينة')">
+      <img src="bom.webp" alt="بوم بون" />
+      <p>بوم بون</p>
+    </div>
+    <div class="sponsor-card" onclick="showPopup('ben.jpg','بن بنصر','شارع بنغازي')">
+      <img src="ben.jpg" alt=" " />
+      <p>بن بنصر</p>
+    </div>
+    <div class="sponsor-card" onclick="showPopup('tttt.webp','مطعم توب ميت','فرع بدر')">
+      <img src="tttt.webp" alt=" " />
+      <p>مطعم توب ميت</p>
+    </div>
+  </section>
+
+   <!-- النافذة المنبثقة -->
+   <div id="popup" class="popup">
+    <div class="popup-content">
+      <img id="popup-img" src="" alt="الداعم" />
+      <h3 id="popup-name"></h3>
+      <p id="popup-location"></p>
+      <button onclick="closePopup()">إغلاق</button>
+    </div>
+  </div>
+
+  <!-- شريط التنقل السفلي -->
+  <nav class="bottom-tab">
+    <a href="pro.html" class="tab-item" title="الرئيسية">
+      <i class="fa-solid fa-house"></i>
+    </a>
+    <a href="products.html" class="tab-item" title="المنتجات">
+      <i class="fa-solid fa-box"></i>
+    </a>
+    <a href="sponsors.html" class="tab-item active" title="الداعمين">
+      <i class="fa-solid fa-handshake"></i>
+    </a>
+    <a href="contact.html" class="tab-item" title="تواصل">
+      <i class="fa-solid fa-envelope"></i>
+    </a>
+  </nav>
+
+  <!-- ✅ الجافاسكربت -->
+  <script>
+    function showPopup(imgSrc, name, location) {
+      document.getElementById('popup-img').src = imgSrc;
+      document.getElementById('popup-name').textContent = name;
+      document.getElementById('popup-location').textContent = location;
+      document.getElementById('popup').style.display = 'flex';
+    }
+
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
